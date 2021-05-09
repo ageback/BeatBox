@@ -14,6 +14,7 @@
         android:layout_height="120dp"
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
+        android:onClick="@{() -> viewModel.onButtonClicked()}"
         android:text="@{viewModel.title}" />
 
 </layout>
