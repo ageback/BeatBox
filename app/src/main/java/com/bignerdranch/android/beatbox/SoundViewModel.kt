@@ -3,7 +3,11 @@ package com.bignerdranch.android.beatbox
 import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable
 
-class SoundViewModel : BaseObservable() {
+class SoundViewModel(private val beatBox: BeatBox) : BaseObservable() {
+    fun onButtonClicked() {
+        sound?.let { beatBox.play(it) }
+    }
+
     var sound: Sound? = null
         set(sound) {
             field = sound
@@ -11,5 +15,6 @@ class SoundViewModel : BaseObservable() {
         }
 
     @get:Bindable
-    val title: String? get() = sound?.name
+    val title: String?
+        get() = sound?.name
 }
